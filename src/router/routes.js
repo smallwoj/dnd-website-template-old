@@ -1,23 +1,40 @@
 import HomeView from '../views/HomeView.vue'
 
 export default [
-    {
-      path: '/',
-      name: 'Home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'About',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    },
-    {
-      path: '/recap',
-      name: 'Recap',
-      component: () => import('../views/RecapsView.vue')
-    }
-  ]
+  {
+    path: '/',
+    name: 'Home',
+    component: HomeView,
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: () => import('../views/HistoryView.vue'),
+  },
+  {
+    path: '/current-events',
+    name: 'Current Events',
+    component: () => import('../views/CurrentEventsView.vue'),
+  },
+  {
+    path: '/nations',
+    name: 'Nations',
+    component: () => import('../views/NationsView.vue'),
+  },
+  {
+    path: '/factions',
+    name: 'Factions',
+    component: () => import('../views/FactionsView.vue'),
+  },
+  {
+    path: '/characters',
+    name: 'Characters',
+    component: () => import('../views/CharactersView.vue'),
+  },
+  {
+    path: '/recap',
+    name: 'Recap',
+    component: () => import('../views/RecapsView.vue'),
+  },
+]
   
