@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <v-tabs>
+    <v-tabs
+      :vertical="tabsProps.vertical"
+    >
       <v-tab
         v-for="route in routes"
         :key="route.path"
@@ -13,14 +15,20 @@
 </template>
 
 <script>
-import routes from '@/router/routes';
-
 export default {
   name: 'NavBar',
-  data() {
-    return {
-      routes: routes,
-    };
+
+  props: {
+    routes: {
+      type: Array,
+      required: true,
+    },
+
+    tabsProps: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
 };
 </script>
