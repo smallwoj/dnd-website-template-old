@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" data-app>
     <NavBar :routes="routes" />
     <router-view/>
   </div>
@@ -8,6 +8,7 @@
 <script>
 import NavBar from '@/components/NavBar.vue';
 import routes from '@/router/routes';
+import Vue from 'vue';
 
 export default {
   name: 'App',
@@ -21,6 +22,19 @@ export default {
       routes,
     };
   },
+
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.xs || this.$vuetify.breakpoint.sm;
+    },
+  },
+
+  created() {
+    // Make global breakpoints available on Vue prototype
+    Object.defineProperty(Vue.prototype, '$isMobile', {
+      get: () => this.isMobile,
+    });
+  }
 }
 </script>
 

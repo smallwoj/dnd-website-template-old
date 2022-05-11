@@ -1,12 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="auto">
+      <v-col :cols="cols">
         <NavBar
           :routes="routes"
           :tabsProps="{
             vertical: true,
           }"
+          :menu="$isMobile"
         />
       </v-col>
       <v-col>
@@ -22,6 +23,10 @@ export default {
   components: { NavBar },
 
   computed: {
+    cols() {
+      return this.$isMobile ? '12' : 'auto';
+    },
+
     routes() {
       // get child routes from current route
       return this.$router.options.routes
