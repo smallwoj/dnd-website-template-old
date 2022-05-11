@@ -89,6 +89,11 @@ export default [
     component: () => import('../views/CharactersView.vue'),
   },
   {
+    path: '/quests',
+    name: 'Quests',
+    component: () => import('../views/QuestsView.vue'),
+  },
+  {
     path: '/recap',
     name: 'Recap',
     component: () => import('../views/RecapsView.vue'),
