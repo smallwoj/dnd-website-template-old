@@ -3,6 +3,8 @@
     <v-tabs
       v-if="!menu"
       :vertical="tabsProps.vertical"
+      center-active
+      show-arrows
     >
       <v-tab
         v-for="route in routes"

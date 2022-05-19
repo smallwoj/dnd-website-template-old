@@ -1,7 +1,15 @@
 <template>
   <div id="app" data-app>
-    <NavBar :routes="routes" />
-    <router-view/>
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <NavBar :routes="routes" />
+        </v-col>
+        <v-col cols="12">
+          <router-view/>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
