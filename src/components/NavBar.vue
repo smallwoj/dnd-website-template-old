@@ -18,7 +18,7 @@
       v-else
       offset-y
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           color="primary"
           dark
@@ -71,7 +71,7 @@ export default {
   },
 
   mounted() {
-    this.currRoute = this.routes.map(x => x.name).indexOf(this.$route.name);
-  }
+    this.currRoute = this.routes.map((x) => x.name).indexOf(this.$route.name);
+  },
 };
 </script>

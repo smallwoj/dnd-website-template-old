@@ -1,12 +1,15 @@
 <template>
-  <div id="app" data-app>
+  <div
+    id="app"
+    data-app
+  >
     <v-container>
       <v-row>
         <v-col cols="12">
           <NavBar :routes="routes" />
         </v-col>
         <v-col cols="12">
-          <router-view/>
+          <router-view />
         </v-col>
       </v-row>
     </v-container>
@@ -14,9 +17,9 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-import routes from '@/router/routes';
 import Vue from 'vue';
+import NavBar from './components/NavBar.vue';
+import routes from './router/routes';
 
 export default {
   name: 'App',
@@ -42,8 +45,8 @@ export default {
     Object.defineProperty(Vue.prototype, '$isMobile', {
       get: () => this.isMobile,
     });
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">

@@ -7,7 +7,8 @@
       <v-row>
         <v-col>
           <p>
-            The continent of [REDACTED] is filled with many wonderful nations and scenic locations! Select a location to learn more about it.
+            The continent of [REDACTED] is filled with many wonderful nations and scenic locations!
+            Select a location to learn more about it.
           </p>
         </v-col>
       </v-row>
@@ -23,5 +24,5 @@
 <script>
 export default {
 
-}
+};
 </script>

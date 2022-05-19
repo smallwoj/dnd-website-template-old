@@ -1,4 +1,4 @@
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/HomeView.vue';
 
 export default [
   {
@@ -98,5 +98,4 @@ export default [
     name: 'Recap',
     component: () => import('../views/RecapsView.vue'),
   },
-]
-  
+];

@@ -25,9 +25,10 @@
 <script>
 import { Editor } from 'vuetify-markdown-editor';
 
-const allFiles = (ctx => {
-  let keys = ctx.keys();
-  let values = keys.map(ctx);
+const allFiles = ((ctx) => {
+  const keys = ctx.keys();
+  const values = keys.map(ctx);
+  // eslint-disable-next-line no-param-reassign
   return keys.reduce((o, k, i) => { o[k] = values[i]; return o; }, {});
 })(require.context('raw-loader!@/assets/recaps', true, /.*/));
 
@@ -76,7 +77,7 @@ export default {
       return fileName.replace(/\.[^/.]+$/, '');
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

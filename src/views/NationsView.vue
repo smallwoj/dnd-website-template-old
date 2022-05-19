@@ -4,7 +4,7 @@
       <v-col :cols="cols">
         <NavBar
           :routes="routes"
-          :tabsProps="{
+          :tabs-props="{
             vertical: true,
           }"
           :menu="$isMobile"
@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+import NavBar from '../components/NavBar.vue';
+
 export default {
   components: { NavBar },
 
@@ -30,10 +31,10 @@ export default {
     routes() {
       // get child routes from current route
       return this.$router.options.routes
-        .filter(route => route.name === 'Nations')[0]
+        .filter((route) => route.name === 'Nations')[0]
         .children
-        .filter(route => route.name !== 'Nations Home');
+        .filter((route) => route.name !== 'Nations Home');
     },
   },
-}
+};
 </script>
