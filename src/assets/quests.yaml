@@ -1,0 +1,17 @@
+---
+quests:
+- name: Pet The Dog
+  desc: You gotta pet him!!!!!
+  completed: false
+
+- name: Pet The Cat
+  desc: You have successfully pet the cat.
+  completed: true
+
+- name: Pet The Bird
+  desc: You need pet the bird.
+  completed: false
+
+- name: Pet The Fish
+  desc: You need pet the fish.
+  completed: true
