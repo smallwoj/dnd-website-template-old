@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-expansion-panels
+      ref="expansion-panels"
       v-model="opened"
       multiple
     >
@@ -19,6 +20,18 @@
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
+    <v-btn
+      fab
+      dark
+      small
+      fixed
+      bottom
+      right
+      @click="scrollToBottom"
+    >
+      <v-icon>mdi-arrow-down</v-icon>
+    </v-btn>
+    <div ref="bottom" />
   </v-container>
 </template>
 
@@ -75,6 +88,10 @@ export default {
     stripExtension(file) {
       const fileName = file.replace(/^\.\//, '');
       return fileName.replace(/\.[^/.]+$/, '');
+    },
+
+    scrollToBottom() {
+      this.$refs.bottom.scrollIntoView({ behavior: 'smooth' });
     },
   },
 };
