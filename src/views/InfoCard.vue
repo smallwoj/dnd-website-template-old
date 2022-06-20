@@ -3,30 +3,78 @@
     <v-card-title>
       <span>{{ item.name }}</span>
     </v-card-title>
-    <v-card-text>
-      <v-hover v-slot="{ hover }">
-        <v-carousel
-          v-if="item.images"
-          v-model="currImg"
-          :cycle="!hover"
-          show-arrows-on-hover
-        >
-          <v-carousel-item
-            v-for="(img, i) in item.images"
-            :key="i"
-            :src="img.url"
-            class="pointer-click"
-            @click="openDialog(img.url)"
-          />
-        </v-carousel>
-      </v-hover>
-      <p
-        v-if="item.images && item.images[currImg].caption"
-        style="text-align: center"
+    <v-card-text v-if="item.images">
+      <v-row
+        align="center"
       >
-        Caption: {{ item.images[currImg].caption }}
-      </p>
+        <v-col
+          v-if="item.images && item.images.length > 1"
+          cols="1"
+        >
+          <v-btn
+            fab
+            x-small
+            class="centered"
+            @click="nextImg"
+          >
+            <v-icon>
+              mdi-chevron-left
+            </v-icon>
+          </v-btn>
+        </v-col>
+        <v-col :cols="item.images && item.images.length > 1 ? '10' : '12'">
+          <v-hover
+            v-if="item.images"
+            v-slot="{ hover }"
+          >
+            <v-carousel
+              v-model="currImg"
+              :cycle="!hover"
+              :show-arrows="false"
+              :hide-delimiters="item.images.length <= 1"
+            >
+              <v-carousel-item
+                v-for="(img, i) in item.images"
+                :key="i"
+                :src="img.url"
+                class="pointer-click"
+                @click="openDialog(img.url)"
+              />
+            </v-carousel>
+          </v-hover>
+        </v-col>
+        <v-col
+          v-if="item.images && item.images.length > 1"
+          cols="1"
+        >
+          <v-btn
+            fab
+            x-small
+            class="centered"
+            @click="nextImg"
+          >
+            <v-icon>
+              mdi-chevron-right
+            </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-row
+        justify="center"
+        align="center"
+        fill-height
+      >
+        <v-col>
+          <p
+            v-if="item.images && item.images[currImg].caption"
+            style="text-align: center"
+          >
+            Caption: {{ item.images[currImg].caption }}
+          </p>
+        </v-col>
+      </v-row>
     </v-card-text>
+    <v-divider v-if="item.images && item.images.length > 0" />
     <v-container>
       <Editor
         :value="descriptionMD"
@@ -48,7 +96,7 @@
 import { Editor } from 'vuetify-markdown-editor';
 
 export default {
-  name: 'NationCard',
+  name: 'InfoCard',
 
   components: {
     Editor,
@@ -106,6 +154,18 @@ export default {
       this.dialogSrc = src;
       this.dialog = true;
     },
+
+    nextImg() {
+      this.currImg = (this.currImg + 1) % this.item.images.length;
+    },
+
+    prevImg() {
+      if (this.currImg > 0) {
+        this.currImg -= 1;
+      } else {
+        this.currImg = this.item.images.length - 1;
+      }
+    },
   },
 };
 </script>
@@ -118,5 +178,12 @@ export default {
 .markdown >>> p {
   padding: inherit !important;
   margin: inherit !important;
+}
+
+.centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
