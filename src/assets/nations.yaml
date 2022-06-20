@@ -1,6 +1,7 @@
 - name: The Planet Earth
   default: true
   description_file_name: earth.md
+
 - name: Nation 1
   url: nation1
   images:
@@ -9,6 +10,7 @@
     - url: https://www.enterpriseholdings.com/content/dam/ehicom/ImageAssets/Canadian_Flag.jpg
       caption: Nation 1 flag
   description_file_name: nation1_description.md
+
 - name: Nation 2
   url: nation2
   images:
