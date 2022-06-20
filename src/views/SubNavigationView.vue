@@ -41,6 +41,16 @@ export default {
         .filter((route) => route.name === this.baseRoute)[0]
         .children;
     },
+
+    hasDefault() {
+      return this.routes.some((route) => route.meta.default);
+    },
+  },
+
+  mounted() {
+    if (this.$route.name === this.baseRoute && !this.hasDefault) {
+      this.$router.push({ name: this.routes[0].name });
+    }
   },
 };
 </script>

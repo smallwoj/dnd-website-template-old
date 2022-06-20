@@ -33,6 +33,9 @@ export default [
           item: nation,
           description: import(`raw-loader!@/assets/nations/${nation.description_file_name}`),
         },
+        meta: {
+          default: nation.default,
+        },
       })),
     ],
   },
