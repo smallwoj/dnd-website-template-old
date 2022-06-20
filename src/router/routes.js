@@ -23,7 +23,7 @@ export default [
     component: () => import('../views/NationsView.vue'),
     children: [
       ...nations.map((nation) => ({
-        path: nation.default ? '/nations' : `/nations/${nation.url}`,
+        path: nation.default ? '/nations' : `/nations/${nation.name.toLocaleLowerCase().replace(' ', '-')}`,
         name: nation.name,
         component: () => import('../views/NationCard.vue'),
         props: {
