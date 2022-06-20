@@ -22,13 +22,8 @@ export default [
     name: 'Nations',
     component: () => import('../views/NationsView.vue'),
     children: [
-      {
-        path: '/nations',
-        name: 'Nations Home',
-        component: () => import('../views/NationsHome.vue'),
-      },
       ...nations.map((nation) => ({
-        path: `/nations/${nation.url}`,
+        path: nation.default ? '/nations' : `/nations/${nation.url}`,
         name: nation.name,
         component: () => import('../views/NationCard.vue'),
         props: {

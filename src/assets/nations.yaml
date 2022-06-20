@@ -1,16 +1,19 @@
+- name: The Planet Earth
+  default: true
+  description_file_name: earth.md
 - name: Nation 1
   url: nation1
   images:
-    - path: ../assets/nations/nation1.png
+    - url: https://1.bp.blogspot.com/-fkd7YnPKm_4/T3rpXOMSaNI/AAAAAAAAAo8/JmWiaAjWp4A/s1600/Canada-Map-Political.jpg
       caption: Nation 1 map
-    - path: ../assets/nations/nation1_flag.png
+    - url: https://www.enterpriseholdings.com/content/dam/ehicom/ImageAssets/Canadian_Flag.jpg
       caption: Nation 1 flag
   description_file_name: nation1_description.md
 - name: Nation 2
   url: nation2
   images:
-    - path: ../assets/nations/nation2.png
+    - url: https://racing.dronelife.com/wp-content/uploads/2016/06/usa-map.jpg
       caption: Nation 2 map
-    - path: ../assets/nations/nation2_flag.png
+    - url: https://blog.metrostorage.com/wp-content/uploads/2015/06/FlagDay-scaled.jpg
       caption: Nation 2 flag
   description_file_name: nation2_description.md

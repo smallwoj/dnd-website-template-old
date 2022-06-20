@@ -1,9 +1,27 @@
 <template>
-  <v-card>
+  <v-card :max-width="maxWidth">
     <v-card-title>
       <span>{{ nation.name }}</span>
     </v-card-title>
     <v-card-text>
+      <v-carousel
+        v-if="nation.images"
+        v-model="currImg"
+        cycle
+        :show-arrows="false"
+      >
+        <v-carousel-item
+          v-for="(item, i) in nation.images"
+          :key="i"
+          :src="item.url"
+        />
+      </v-carousel>
+      <p
+        v-if="nation.images"
+        style="text-align: center"
+      >
+        Caption: {{ nation.images[currImg].caption }}
+      </p>
       <Editor
         :value="description"
         mode="viewer"
@@ -40,12 +58,22 @@ export default {
     return {
       nations,
       description: '',
+      currImg: 0,
     };
   },
 
   computed: {
     nation() {
       return this.nations.find((nation) => nation.name === this.nationName);
+    },
+
+    maxWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'md':
+          return '675px';
+        default:
+          return '900px';
+      }
     },
   },
 

@@ -31,7 +31,7 @@
       <v-list v-model="currRoute">
         <v-list-item
           v-for="route in routes"
-          :key="route.path"
+          :key="route.name"
           :to="route.path"
         >
           {{ route.name }}
