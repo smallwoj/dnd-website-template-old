@@ -1,0 +1,11 @@
+- icon: mdi-star
+  color: "#ffd700"
+  header: Dawn of the Universe
+  description: This is where it all begins
+- icon: mdi-baby-face
+  color: "#ff0000"
+  header: The Middle
+  description: This is where it all is in the Middle
+- header: The End
+  description: This is where it all ends
+  color: "#0000ff"
