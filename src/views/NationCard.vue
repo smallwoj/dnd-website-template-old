@@ -19,7 +19,7 @@
         />
       </v-carousel>
       <p
-        v-if="nation.images"
+        v-if="nation.images && nation.images[currImg].caption"
         style="text-align: center"
       >
         Caption: {{ nation.images[currImg].caption }}
