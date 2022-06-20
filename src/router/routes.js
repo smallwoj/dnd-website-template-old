@@ -20,7 +20,7 @@ export default [
   {
     path: '/nations',
     name: 'Nations',
-    component: () => import('../views/NationsView.vue'),
+    component: () => import('../views/SubNavigationView.vue'),
     props: {
       baseRoute: 'Nations',
     },
