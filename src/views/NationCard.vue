@@ -14,6 +14,8 @@
           v-for="(item, i) in nation.images"
           :key="i"
           :src="item.url"
+          class="pointer-click"
+          @click="openDialog(item.url)"
         />
       </v-carousel>
       <p
@@ -27,6 +29,13 @@
         mode="viewer"
       />
     </v-card-text>
+    <v-dialog
+      v-model="dialog"
+    >
+      <v-img
+        :src="dialogSrc"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -59,6 +68,8 @@ export default {
       nations,
       description: '',
       currImg: 0,
+      dialog: false,
+      dialogSrc: '',
     };
   },
 
@@ -90,5 +101,18 @@ export default {
       this.description = description.default;
     });
   },
+
+  methods: {
+    openDialog(src) {
+      this.dialogSrc = src;
+      this.dialog = true;
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.pointer-click {
+  cursor: pointer;
+}
+</style>
