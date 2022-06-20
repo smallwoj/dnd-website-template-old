@@ -24,11 +24,14 @@
       >
         Caption: {{ item.images[currImg].caption }}
       </p>
+    </v-card-text>
+    <v-container>
       <Editor
         :value="descriptionMD"
         mode="viewer"
+        class="markdown"
       />
-    </v-card-text>
+    </v-container>
     <v-dialog
       v-model="dialog"
     >
@@ -108,5 +111,10 @@ export default {
 <style lang="scss" scoped>
 .pointer-click {
   cursor: pointer;
+}
+
+.markdown >>> p {
+  padding: inherit !important;
+  margin: inherit !important;
 }
 </style>

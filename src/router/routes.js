@@ -1,5 +1,6 @@
 import HomeView from '../views/HomeView.vue';
 import nations from '../assets/nations.yaml';
+import factions from '../assets/factions.yaml';
 
 export default [
   {
@@ -42,7 +43,24 @@ export default [
   {
     path: '/factions',
     name: 'Factions',
-    component: () => import('../views/FactionsView.vue'),
+    component: () => import('../views/SubNavigationView.vue'),
+    props: {
+      baseRoute: 'Factions',
+    },
+    children: [
+      ...factions.map((faction) => ({
+        path: faction.default ? '/factions' : `/factions/${faction.name.toLocaleLowerCase().replace(/\s/g, '-')}`,
+        name: faction.name,
+        component: () => import('../views/InfoCard.vue'),
+        props: {
+          item: faction,
+          description: import(`raw-loader!@/assets/factions/${faction.description_file_name}`),
+        },
+        meta: {
+          default: faction.default,
+        },
+      })),
+    ],
   },
   {
     path: '/characters',

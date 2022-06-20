@@ -56,4 +56,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 25px;
+}
 </style>

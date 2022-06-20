@@ -1,0 +1,22 @@
+# taken from https://en.wikipedia.org/wiki/Middlesex_County_Football_Association
+- name: Middlesex County Football Association
+  description_file_name: mcfa.md
+
+# taken from https://fallout.fandom.com/wiki/Tunnel_Snakes
+- name: Tunnel Snakes
+  images:
+    - url: https://static.wikia.nocookie.net/fallout/images/d/df/Butch_FI.jpg
+      caption: Butch DeLoria
+    - url: https://static.wikia.nocookie.net/fallout/images/9/9b/Wally_Mack_FI.jpg
+      caption: Wally Mack
+    - url: https://static.wikia.nocookie.net/fallout/images/c/cf/Freddie_Gomez_TOH.jpg
+      caption: Paul Hannon Jr.
+    - url: https://static.wikia.nocookie.net/fallout/images/6/66/Tunnel_Snakes.jpg
+      caption: Tunnel Snakes harassing Amata
+    - url: https://static.wikia.nocookie.net/fallout/images/8/8a/Vault_106_WallyPaulButch_hallucination.jpg
+      caption: Tunnel Snakes hallucination in the Vault 106
+    - url: https://static.wikia.nocookie.net/fallout/images/8/8d/TunnelSnakesCA.jpg
+      caption: Early concept art of the Tunnel Snakes logo
+    - url: https://static.wikia.nocookie.net/fallout/images/3/3b/TS_outfit.png
+      caption: Tunnel Snakes logo on the back of the jacket
+  description_file_name: tunnel_snakes.md

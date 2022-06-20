@@ -47,6 +47,17 @@ export default {
     },
   },
 
+  watch: {
+    $route: {
+      handler() {
+        if (this.$route.name === this.baseRoute && !this.hasDefault) {
+          this.$router.push({ name: this.routes[0].name });
+        }
+      },
+      immediate: true,
+    },
+  },
+
   mounted() {
     if (this.$route.name === this.baseRoute && !this.hasDefault) {
       this.$router.push({ name: this.routes[0].name });

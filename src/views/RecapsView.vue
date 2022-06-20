@@ -96,10 +96,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-p {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-</style>
