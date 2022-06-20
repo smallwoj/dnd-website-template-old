@@ -23,6 +23,13 @@ import NavBar from '../components/NavBar.vue';
 export default {
   components: { NavBar },
 
+  props: {
+    baseRoute: {
+      type: String,
+      required: true,
+    },
+  },
+
   computed: {
     cols() {
       return this.$isMobile ? '12' : 'auto';
@@ -31,9 +38,8 @@ export default {
     routes() {
       // get child routes from current route
       return this.$router.options.routes
-        .filter((route) => route.name === 'Nations')[0]
-        .children
-        .filter((route) => route.name !== 'Nations Home');
+        .filter((route) => route.name === this.baseRoute)[0]
+        .children;
     },
   },
 };

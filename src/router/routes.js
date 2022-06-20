@@ -21,6 +21,9 @@ export default [
     path: '/nations',
     name: 'Nations',
     component: () => import('../views/NationsView.vue'),
+    props: {
+      baseRoute: 'Nations',
+    },
     children: [
       ...nations.map((nation) => ({
         path: nation.default ? '/nations' : `/nations/${nation.name.toLocaleLowerCase().replace(' ', '-')}`,
