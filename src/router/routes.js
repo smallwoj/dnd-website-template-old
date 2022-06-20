@@ -26,7 +26,7 @@ export default [
     },
     children: [
       ...nations.map((nation) => ({
-        path: nation.default ? '/nations' : `/nations/${nation.name.toLocaleLowerCase().replace(' ', '-')}`,
+        path: nation.default ? '/nations' : `/nations/${nation.name.toLocaleLowerCase().replace(/\s/g, '-')}`,
         name: nation.name,
         component: () => import('../views/InfoCard.vue'),
         props: {
