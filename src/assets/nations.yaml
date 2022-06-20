@@ -1,0 +1,16 @@
+- name: Nation 1
+  url: nation1
+  images:
+    - path: ../assets/nations/nation1.png
+      caption: Nation 1 map
+    - path: ../assets/nations/nation1_flag.png
+      caption: Nation 1 flag
+  description_file_name: nation1_description.md
+- name: Nation 2
+  url: nation2
+  images:
+    - path: ../assets/nations/nation2.png
+      caption: Nation 2 map
+    - path: ../assets/nations/nation2_flag.png
+      caption: Nation 2 flag
+  description_file_name: nation2_description.md
