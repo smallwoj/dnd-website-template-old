@@ -27,8 +27,8 @@ export default [
         name: nation.name,
         component: () => import('../views/NationCard.vue'),
         props: {
-          nationName: nation.name,
-          nationDescription: import(`raw-loader!@/assets/nations/${nation.description_file_name}`),
+          item: nation,
+          description: import(`raw-loader!@/assets/nations/${nation.description_file_name}`),
         },
       })),
     ],

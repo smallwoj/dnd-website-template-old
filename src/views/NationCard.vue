@@ -1,31 +1,31 @@
 <template>
   <v-card :max-width="maxWidth">
     <v-card-title>
-      <span>{{ nation.name }}</span>
+      <span>{{ item.name }}</span>
     </v-card-title>
     <v-card-text>
       <v-carousel
-        v-if="nation.images"
+        v-if="item.images"
         v-model="currImg"
         cycle
         :show-arrows="false"
       >
         <v-carousel-item
-          v-for="(item, i) in nation.images"
+          v-for="(img, i) in item.images"
           :key="i"
-          :src="item.url"
+          :src="img.url"
           class="pointer-click"
-          @click="openDialog(item.url)"
+          @click="openDialog(img.url)"
         />
       </v-carousel>
       <p
-        v-if="nation.images && nation.images[currImg].caption"
+        v-if="item.images && item.images[currImg].caption"
         style="text-align: center"
       >
-        Caption: {{ nation.images[currImg].caption }}
+        Caption: {{ item.images[currImg].caption }}
       </p>
       <Editor
-        :value="description"
+        :value="descriptionMD"
         mode="viewer"
       />
     </v-card-text>
@@ -41,7 +41,6 @@
 
 <script>
 import { Editor } from 'vuetify-markdown-editor';
-import nations from '../assets/nations.yaml';
 
 export default {
   name: 'NationCard',
@@ -51,12 +50,12 @@ export default {
   },
 
   props: {
-    nationName: {
-      type: String,
+    item: {
+      type: Object,
       required: true,
     },
 
-    nationDescription: {
+    description: {
       type: Promise,
       required: false,
       default: () => Promise.resolve({ default: '' }),
@@ -65,8 +64,7 @@ export default {
 
   data() {
     return {
-      nations,
-      description: '',
+      descriptionMD: '',
       currImg: 0,
       dialog: false,
       dialogSrc: '',
@@ -74,10 +72,6 @@ export default {
   },
 
   computed: {
-    nation() {
-      return this.nations.find((nation) => nation.name === this.nationName);
-    },
-
     maxWidth() {
       switch (this.$vuetify.breakpoint.name) {
         case 'md':
@@ -89,16 +83,16 @@ export default {
   },
 
   watch: {
-    nationDescription(newValue) {
+    description(newValue) {
       newValue.then((value) => {
-        this.description = value.default;
+        this.descriptionMD = value.default;
       });
     },
   },
 
   mounted() {
-    this.nationDescription.then((description) => {
-      this.description = description.default;
+    this.description.then((description) => {
+      this.descriptionMD = description.default;
     });
   },
 
