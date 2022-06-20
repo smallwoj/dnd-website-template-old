@@ -5,9 +5,8 @@
         <NavBar
           :routes="routes"
           :tabs-props="{
-            vertical: true,
+            vertical: !$isMobile,
           }"
-          :menu="$isMobile"
         />
       </v-col>
       <v-col>

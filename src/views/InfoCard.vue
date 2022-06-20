@@ -141,6 +141,10 @@ export default {
         this.descriptionMD = value.default;
       });
     },
+
+    item() {
+      this.currImg = 0;
+    },
   },
 
   mounted() {

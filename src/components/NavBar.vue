@@ -8,7 +8,7 @@
     >
       <v-tab
         v-for="route in routes"
-        :key="route.path"
+        :key="route.name"
         :to="route.path"
       >
         {{ route.name }}
