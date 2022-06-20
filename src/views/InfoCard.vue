@@ -4,20 +4,22 @@
       <span>{{ item.name }}</span>
     </v-card-title>
     <v-card-text>
-      <v-carousel
-        v-if="item.images"
-        v-model="currImg"
-        cycle
-        :show-arrows="false"
-      >
-        <v-carousel-item
-          v-for="(img, i) in item.images"
-          :key="i"
-          :src="img.url"
-          class="pointer-click"
-          @click="openDialog(img.url)"
-        />
-      </v-carousel>
+      <v-hover v-slot="{ hover }">
+        <v-carousel
+          v-if="item.images"
+          v-model="currImg"
+          :cycle="!hover"
+          show-arrows-on-hover
+        >
+          <v-carousel-item
+            v-for="(img, i) in item.images"
+            :key="i"
+            :src="img.url"
+            class="pointer-click"
+            @click="openDialog(img.url)"
+          />
+        </v-carousel>
+      </v-hover>
       <p
         v-if="item.images && item.images[currImg].caption"
         style="text-align: center"
