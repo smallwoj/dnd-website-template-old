@@ -25,7 +25,7 @@ export default [
       ...nations.map((nation) => ({
         path: nation.default ? '/nations' : `/nations/${nation.name.toLocaleLowerCase().replace(' ', '-')}`,
         name: nation.name,
-        component: () => import('../views/NationCard.vue'),
+        component: () => import('../views/InfoCard.vue'),
         props: {
           item: nation,
           description: import(`raw-loader!@/assets/nations/${nation.description_file_name}`),
