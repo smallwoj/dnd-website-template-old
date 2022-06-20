@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import questYaml from '../assets/quests.yaml';
+import quests from '../assets/quests.yaml';
 
 export default {
   data() {
@@ -74,11 +74,11 @@ export default {
 
   computed: {
     quests() {
-      return questYaml.quests.filter((quest) => !quest.completed);
+      return quests.filter((quest) => !quest.completed);
     },
 
     completedQuests() {
-      return questYaml.quests.filter((quest) => quest.completed);
+      return quests.filter((quest) => quest.completed);
     },
   },
 };

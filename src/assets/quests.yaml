@@ -1,5 +1,4 @@
 ---
-quests:
 - name: Pet The Dog
   desc: You gotta pet him!!!!!
   completed: false
