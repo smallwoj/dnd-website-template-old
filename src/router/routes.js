@@ -1,6 +1,8 @@
 import HomeView from '../views/HomeView.vue';
-import nations from '../assets/nations.yaml';
+
+import characters from '../assets/characters.yaml';
 import factions from '../assets/factions.yaml';
+import nations from '../assets/nations.yaml';
 
 export default [
   {
@@ -65,7 +67,24 @@ export default [
   {
     path: '/characters',
     name: 'Characters',
-    component: () => import('../views/CharactersView.vue'),
+    component: () => import('../views/SubNavigationView.vue'),
+    props: {
+      baseRoute: 'Characters',
+    },
+    children: [
+      ...characters.map((character) => ({
+        path: character.default ? '/characters' : `/characters/${character.name.toLocaleLowerCase().replace(/\s/g, '-')}`,
+        name: character.name,
+        component: () => import('../views/InfoCard.vue'),
+        props: {
+          item: character,
+          description: import(`raw-loader!@/assets/characters/${character.description_file_name}`),
+        },
+        meta: {
+          default: character.default,
+        },
+      })),
+    ],
   },
   {
     path: '/quests',
