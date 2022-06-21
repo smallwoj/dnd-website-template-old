@@ -1,5 +1,3 @@
-import HomeView from '../views/HomeView.vue';
-
 import characters from '../assets/characters.yaml';
 import factions from '../assets/factions.yaml';
 import nations from '../assets/nations.yaml';
@@ -8,7 +6,10 @@ export default [
   {
     path: '/',
     name: 'Home',
-    component: HomeView,
+    component: () => import('../views/SingleMarkdownView.vue'),
+    props: {
+      file: import(`raw-loader!@/assets/${'home.md'}`),
+    },
   },
   {
     path: '/history',
@@ -18,7 +19,10 @@ export default [
   {
     path: '/current-events',
     name: 'Current Events',
-    component: () => import('../views/CurrentEventsView.vue'),
+    component: () => import('../views/SingleMarkdownView.vue'),
+    props: {
+      file: import(`raw-loader!@/assets/${'current_events.md'}`),
+    },
   },
   {
     path: '/nations',
