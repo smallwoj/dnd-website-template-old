@@ -6,6 +6,7 @@
           <Editor
             :value="markdown"
             mode="viewer"
+            class="markdown"
           />
         </v-col>
       </v-row>
@@ -50,3 +51,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../scss/markdown";
+</style>

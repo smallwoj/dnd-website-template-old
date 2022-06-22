@@ -175,13 +175,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/markdown";
+
 .pointer-click {
   cursor: pointer;
-}
-
-.markdown >>> p {
-  padding: inherit !important;
-  margin: inherit !important;
 }
 
 .centered {

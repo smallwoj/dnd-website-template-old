@@ -16,6 +16,7 @@
           <Editor
             :value="recap.content"
             mode="viewer"
+            class="markdown"
           />
         </v-expansion-panel-content>
       </v-expansion-panel>
@@ -96,3 +97,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../scss/markdown";
+</style>
