@@ -91,8 +91,21 @@ The Recap page serves as a log of the campaign.
 The Recap page is controlled by markdown files in the `src/assets/recaps` folder. You can put whatever you want in them, but the file name needs to be the day of the session, saved in the format `YYYY-MM-DD.md` For example, the recap for the session on May 8th, 2022 would be saved as `2022-05-08.md`.
 # Deploying to Netlify
 ## Update the name
-
+To update the name of your site, update the `app` field in [src/globals.js](src/globals.js).
 ## Update the favicon
+You can set the favicon (in `public/favicon.ico`) to whatever youd like! I personally use https://realfavicongenerator.net/ to convert an image to a favicon. Just replace the file.
+## Setting up Netlify
+First, create an account at https://www.netlify.com/. To save time, I recommend creating a Netlify account using your GitHub account, as you will need to link Netlify to GitHub at some stage.
+
+Click `Add new site` -> `Import an existing project`.
+
+Click on `GitHub` in the `Connect to Git provider` section. Your repository should appear in the list.
+
+You shouldn't need to change any of the settings, as this project was built with the default Netlify settings in mind.
+
+After clicking `Deploy Site`, your site should build and deploy!
+
+To update the url, click `Site Settings` and then click `Change site name`.
 
 # Development Commands
 ## Project setup
@@ -115,7 +128,7 @@ npm run build
 npm run lint
 ```
 
-### Deploy to netlify
+### Deploy to Netlify
 ```
 npm run deploy
 ```
