@@ -2,6 +2,8 @@
 This is a template website for anyone to fork and create their own dnd website with little amount of coding knowledge required!
 This site is built using Vue.js and powered by Vuetify.
 
+An example of this site can be browsed at https://jonch-dnd-template.netlify.app/.
+
 # Sections
 ## Home
 The Home page is the landing page for your site and the first thing most users will
