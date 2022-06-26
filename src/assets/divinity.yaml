@@ -1,0 +1,5 @@
+- name: Homer Simpson
+  description_file_name: homer_simpson.md
+  images:
+    - url: https://cdn.discordapp.com/attachments/486772901723373589/990733097278529586/unknown.png
+      caption: hoger bimpon.

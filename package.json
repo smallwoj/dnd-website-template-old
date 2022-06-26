@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "netlify build; netlify deploy --prod"
+    "deploy": "netlify build; netlify deploy --prod",
+    "deploy-test": "netlify build; netlify deploy"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",

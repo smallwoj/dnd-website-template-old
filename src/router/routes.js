@@ -1,4 +1,5 @@
 import characters from '../assets/characters.yaml';
+import divinity from '../assets/divinity.yaml';
 import factions from '../assets/factions.yaml';
 import nations from '../assets/nations.yaml';
 
@@ -15,6 +16,28 @@ export default [
     path: '/history',
     name: 'History',
     component: () => import('../views/HistoryView.vue'),
+  },
+  {
+    path: '/divinity',
+    name: 'Divinity',
+    component: () => import('../views/SubNavigationView.vue'),
+    props: {
+      baseRoute: 'Divinity',
+    },
+    children: [
+      ...divinity.map((divine) => ({
+        path: divine.default ? '/divinity' : `/divinity/${divine.name.toLocaleLowerCase().replace(/\s/g, '-')}`,
+        name: divine.name,
+        component: () => import('../views/InfoCard.vue'),
+        props: {
+          item: divine,
+          description: import(`raw-loader!@/assets/divinity/${divine.description_file_name}`),
+        },
+        meta: {
+          default: divine.default,
+        },
+      })),
+    ],
   },
   {
     path: '/current-events',

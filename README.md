@@ -27,6 +27,20 @@ You can define a list of major events. The fields for each list entry are:
 | `icon`        | Icon to show on the item. Must start with `mdi-` and correspond to an icon in the [Official Material Design Icons Page](https://materialdesignicons.com/). Ex: `mdi-star` | No        |
 |               |                                                                                                                                                                           |           |
 
+## Divinity
+This page is where you can view all the deities of your world.
+
+The Nations page is controlled by the yaml file `src/assets/divinity.yaml`, and by markdown files in the folder `src/assets/divinity`.
+
+Each deity is a separate list entry. The fields are: 
+
+
+| Field                   | Description                                                                                                      | Required? |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- | --------- |
+| `name`                  | The name of the nation.                                                                                          | Yes       |
+| `description_file_name` | The name of the file in the `src/assets/divinity` folder that contains the markdown description for this nation. | Yes       |
+| `images`                | A list of urls and optional captions. See [src/assets/divinity.yaml](src/assets/divinity.yaml) for examples.     | No        |
+
 ## Current Events
 The Current Events page is the spot to go for everything up to date in your world.
 
@@ -134,6 +148,8 @@ npm run lint
 ```
 npm run deploy
 ```
+
+### Run a test deploy to Netlify
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
